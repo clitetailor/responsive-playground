@@ -1,0 +1,8 @@
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format",
+      "pre-push": "yarn test && yarn e2e"
+    }
+  }
+}
