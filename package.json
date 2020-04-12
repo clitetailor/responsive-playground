@@ -20,13 +20,20 @@
     "css-loader": "^2.1.1",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
+    "favicons-webpack-plugin": "^3.0.1",
+    "file-loader": "^6.0.0",
     "history": "^4.10.1",
+    "html-webpack-plugin": "^4.2.0",
     "husky": "^4.2.5",
     "jest": "^25.1.0",
     "jest-puppeteer": "^4.4.0",
     "mini-css-extract-plugin": "^0.6.0",
     "node-sass": "^4.13.1",
+    "page": "^1.11.5",
+    "postcss-load-config": "^2.1.0",
     "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-simple-vars": "^5.0.2",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "puppeteer": "^2.1.1",
@@ -39,6 +46,7 @@
     "svelte-preprocess": "^3.4.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.5",
+    "url-loader": "^4.1.0",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.1"
@@ -51,7 +59,5 @@
     "format": "prettier --write **/*.{svelte,js,json,css,scss,ts}",
     "lint": "eslint . --ext .js,.ts,.svelte"
   },
-  "dependencies": {
-    "page": "^1.11.5"
-  }
+  "dependencies": {}
 }

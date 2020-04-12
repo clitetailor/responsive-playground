@@ -1,4 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const path = require('path')
 
 const { preprocess } = require('./svelte.config')
@@ -42,15 +44,35 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.p?css$/,
         use: [
-          /**
-           * MiniCssExtractPlugin doesn't support HMR.
-           * For developing, use 'style-loader' instead.
-           * */
           prod ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
           'postcss-loader'
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              esModule: false,
+              limit: 8192
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              esModule: false,
+              limit: 8192
+            }
+          }
         ]
       }
     ]
@@ -59,6 +81,12 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/assets/images/favicon.png'
     })
   ],
   devtool: prod ? false : 'source-map',

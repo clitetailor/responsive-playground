@@ -1,3 +1,12 @@
 module.exports = {
-  plugins: [require('autoprefixer')]
+  plugins: [
+    require('postcss-preset-env')({
+      stage: 3,
+      features: {
+        'nesting-rules': true
+      }
+    }),
+    require('postcss-simple-vars'),
+    require('autoprefixer')
+  ]
 }
